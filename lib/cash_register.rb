@@ -10,11 +10,11 @@ class CashRegister
 		@price = price
 		@quantity = quantity
 		@total += (@price * @quantity)
-		quantity.times {@items << title}
+		@quantity.times {@items << title}
 	end
 
 	def apply_discount
-		if discount > 0
+		if @discount > 0
 			@total = @total - (@total * (@discount * 0.01)).round
 			"After the discount, the total comes to $#{@total}."
 		else
